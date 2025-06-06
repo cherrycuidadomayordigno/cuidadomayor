@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuidado Mayor Digno - Asistencia Profesional a Domicilio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            color: #444;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-top: 40px;
+        }
+
+        h3 {
+            font-size: 1.8em;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 30px;
+            margin-top: 25px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        /* Header */
+        header {
+            background-color: #ffffff;
+            color: #2c3e50;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            text-align: left;
+            font-size: 1.8em;
+            color: #2c3e50;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 30px;
+        }
+
+        header nav ul li a {
+            color: #2c3e50;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        /* Hero Section (Imagen de fondo grande) */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1544367364-97214775d710?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 120px 0;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+        }
+
+        #hero h2 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        #hero p {
+            font-size: 1.4em;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Secciones Generales */
+        .section-padded {
+            padding: 80px 0;
+        }
+
+        .section-light {
+            background-color: #f0f4f7;
+        }
+
+        /* Servicios */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-item {
+            background-color: #fff;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-item h3 {
+            color: #3498db;
+            margin-top: 0;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .service-item p {
+            color: #666;
+        }
+
+        /* Sobre Mí */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #3498db;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .about-content div {
+            max-width: 800px;
+            color: #555;
+            font-size: 1.1em;
+        }
+        .about-content p {
+            margin-bottom: 15px;
+        }
+
+        /* Videos */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            margin: 30px 0;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            background-color: #000; /* Fondo negro para videos */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+
+        /* Testimonios */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-item {
+            background-color: #fff;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            font-style: italic;
+            color: #555;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-item p {
+            margin-bottom: 20px;
+        }
+
+        .testimonial-item span {
+            display: block;
+            margin-top: auto; /* Empuja el nombre hacia abajo */
+            font-style: normal;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.05em;
+        }
+        .video-testimonial-item .video-container {
+            margin: 0 0 20px 0; /* Ajusta margen para items de video */
+        }
+
+        /* Contacto */
+        #contacto h2 {
+            margin-bottom: 35px;
+        }
+
+        #contacto form {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea {
+            width: calc(100% - 24px); /* Ajuste para padding */
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.05em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 35px;
+            font-size: 1.2em;
+            color: #555;
+        }
+        .contact-info a {
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            font-size: 0.95em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .profile-pic {
+                margin-right: 40px;
+                margin-bottom: 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            header nav ul li {
+                margin: 5px 12px;
+            }
+
+            #hero h2 {
+                font-size: 2.5em;
+            }
+
+            #hero p {
+                font-size: 1em;
+            }
+
+            .section-padded {
+                padding: 40px 0;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h3 {
+                font-size: 1.4em;
+            }
+
+            .service-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #contacto form {
+                padding: 25px;
+            }
+            .form-group input[type="text"],
+            .form-group input[type="email"],
+            .form-group input[type="tel"],
+            .form-group textarea {
+                width: calc(100% - 20px); /* Ajuste para padding */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Cuidado Mayor Digno</h1>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h2 id="welcomeMessage">Tu Bienestar, Mi Prioridad</h2>
+            <p>Asistencia profesional, cálida y confiable para adultos mayores en Ciudad de la Costa y cercanías.</p>
+            <a href="#contacto" class="btn">Solicita tu Consulta Gratuita Hoy</a>
+        </div>
+    </section>
+
+    <section id="servicios" class="section-padded">
+        <div class="container">
+            <h2>Nuestros Servicios Integrales</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h3>Cuidado Personal Diaria</h3>
+                    <p>Asistencia respetuosa con higiene, vestimenta, movilidad y soporte en comidas.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Acompañamiento y Actividades</h3>
+                    <p>Compañía empática, lectura, juegos, paseos y fomento de la interacción social.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Gestión de Medicamentos</h3>
+                    <p>Control riguroso, recordatorios y organización segura de toda la medicación.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Soporte Doméstico Ligero</h3>
+                    <p>Ayuda con tareas básicas del hogar que promueven un ambiente confortable.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Acompañamiento a Citas</h3>
+                    <p>Transporte y compañía a consultas médicas, terapias o gestiones importantes.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Cuidado Post-Hospitalario</h3>
+                    <p>Soporte especializado durante la recuperación en casa, siguiendo indicaciones médicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="section-light section-padded">
+        <div class="container">
+            <h2>Sobre Mí: Pasión por el Cuidado Digno</h2>
+            <div class="about-content">
+                <img src="https://images.unsplash.com/photo-1544367364-97214775d710?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foto Profesional de la Asistente" class="profile-pic">
+                <div>
+                    <p>¡Hola! Soy **[Nombre de tu amiga]**, una asistente gerontológica con una profunda vocación y **más de 10 años de experiencia** dedicada al bienestar de los adultos mayores en Uruguay.</p>
+                    <p>Cuento con **Diploma en Asistencia Gerontológica** y una sólida trayectoria trabajando tanto con **particulares** como en **geriátricos reconocidos**. Mi enfoque es siempre individualizado, buscando potenciar la autonomía y brindar un cuidado integral que mejore la calidad de vida de cada persona.</p>
+                    <p>Mi compromiso es ofrecer un servicio basado en el **respeto, la empatía y la profesionalidad**, creando un vínculo de confianza con las familias y sus seres queridos.</p>
+
+                    <h3>Mi Filosofía en un Video</h3>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE?controls=0" title="Video de Presentación del Servicio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p>Este breve video te permitirá conocerme un poco mejor y entender mi filosofía de trabajo. Estoy aquí para brindarles la tranquilidad que merecen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="section-padded">
+        <div class="container">
+            <h2>Historias Reales: La Voz de Quienes Confiaron</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-item">
+                    <p>"La llegada de [Nombre de tu amiga] a nuestra casa fue una bendición. Mi abuela, que antes estaba apática, ahora sonríe y participa en actividades. Su profesionalismo y dulzura son inigualables. ¡Gracias por tanto!"</p>
+                    <span>— Sra. Laura G., Malvín, Montevideo</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Necesitábamos ayuda urgente para mi padre post-operación, y [Nombre de tu amiga] respondió de inmediato. Su cuidado fue impecable, siempre atenta a los detalles y con una paciencia admirable. Nos dio muchísima paz."</p>
+                    <span>— Familia De Luca, Carrasco, Montevideo</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Mi tía vive sola y nos preocupaba su día a día. Con [Nombre de tu amiga] sabemos que está en las mejores manos. No solo la cuida, sino que la acompaña y estimula. Es parte de la familia ya."</p>
+                    <span>— Sr. Javier S., Centro, Montevideo</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"En el geriátrico, [Nombre de tu amiga] siempre se destacaba por su trato amable y su dedicación. Cuando mi madre necesitaba cuidado en casa, no dudé en contactarla. Su experiencia es evidente en cada gesto."</p>
+                    <span>— Dra. Ana P., Pocitos, Montevideo</span>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 60px;">Testimonios en Video: Rostros y Emociones</h3>
+            <div class="testimonial-grid">
+                 <div class="testimonial-item video-testimonial-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE_2?controls=0" title="Testimonio en Video Cliente 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p>Escucha directamente la experiencia de la familia [Apellido del Cliente] con nuestro servicio.</p>
+                </div>
+                <div class="testimonial-item video-testimonial-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE_3?controls=0" title="Testimonio en Video Cliente 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p>La Sra. [Apellido del Cliente] comparte cómo su vida y la de su familiar mejoraron con nuestro apoyo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section-light section-padded">
+        <div class="container">
+            <h2>Conversemos: Tu Tranquilidad es Mi Prioridad</h2>
+            <p style="text-align: center; font-size: 1.15em; max-width: 700px; margin: 0 auto 40px;">¿Tienes alguna pregunta, necesitas un servicio específico o quieres solicitar una consulta gratuita y sin compromiso? Estoy aquí para ayudarte a encontrar la mejor solución para tu familiar.</p>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Tu Nombre Completo:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Tu Email (para contactarte):</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Tu Teléfono (opcional, pero útil para contacto rápido):</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="message">Cuéntame brevemente cómo puedo ayudarte:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
+            <p class="contact-info">O si lo prefieres, contáctame directamente:</p>
+            <p class="contact-info">Llama o envía WhatsApp: <a href="tel:+5989X XXX XXX" style="font-size: 1.1em;">+598 9X XXX XXX</a></p>
+            <p class="contact-info">Escribe a: <a href="mailto:tuamiga@email.com" style="font-size: 1.1em;">tuamiga@email.com</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Cuidado Mayor Digno. Todos los derechos reservados. | Asistencia Gerontológica Profesional en Ciudad de la Costa, Uruguay.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const welcomeMessageElement = document.getElementById('welcomeMessage');
+            const messages = [
+                "Tu Bienestar, Mi Prioridad",
+                "Cuidado Profesional y Empático",
+                "Acompañamiento en Cada Paso",
+                "Confianza y Tranquilidad para Tu Familia"
+            ];
+            let messageIndex = 0;
+
+            function changeWelcomeMessage() {
+                welcomeMessageElement.textContent = messages[messageIndex];
+                messageIndex = (messageIndex + 1) % messages.length;
+            }
+
+            // Cambia el mensaje cada 4 segundos
+            setInterval(changeWelcomeMessage, 4000);
+
+            // Ejecuta el cambio de mensaje al cargar la página
+            changeWelcomeMessage();
+        });
+    </script>
+</body>
+</html>
