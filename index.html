@@ -20,23 +20,26 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px 0;
+            padding: 40px 0; /* Aumenté el padding general */
+            position: relative; /* Para el contenido sobre la imagen de fondo */
+            z-index: 2; /* Para que el texto esté sobre la imagen */
         }
 
         h1, h2, h3 {
             font-family: 'Montserrat', sans-serif;
             color: #2c3e50;
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         h2 {
-            font-size: 2.5em;
-            margin-top: 40px;
+            font-size: 2.8em;
+            margin-top: 50px;
         }
 
         h3 {
-            font-size: 1.8em;
+            font-size: 2em;
+            margin-bottom: 20px;
         }
 
         a {
@@ -54,13 +57,13 @@
             display: inline-block;
             background-color: #3498db;
             color: #fff;
-            padding: 12px 28px;
+            padding: 14px 32px;
             border-radius: 30px;
-            margin-top: 25px;
+            margin-top: 30px;
             font-weight: 600;
             letter-spacing: 0.5px;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .btn:hover {
@@ -71,19 +74,21 @@
 
         /* Header */
         header {
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
             color: #2c3e50;
             padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
+            position: fixed; /* Fixed para que siempre esté arriba */
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
         }
 
         header h1 {
             margin: 0;
             text-align: left;
-            font-size: 1.8em;
+            font-size: 2em;
             color: #2c3e50;
         }
 
@@ -115,136 +120,172 @@
             text-decoration: none;
         }
 
-        /* Hero Section (Imagen de fondo grande) */
-        #hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1544367364-97214775d710?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-            color: #fff;
-            text-align: center;
-            padding: 120px 0;
-            min-height: 550px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-        }
-
-        #hero h2 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            color: #fff;
-            line-height: 1.2;
-        }
-
-        #hero p {
-            font-size: 1.4em;
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-
-        /* Secciones Generales */
-        .section-padded {
-            padding: 80px 0;
-        }
-
-        .section-light {
-            background-color: #f0f4f7;
-        }
-
-        /* Servicios */
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .service-item {
-            background-color: #fff;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .service-item h3 {
-            color: #3498db;
-            margin-top: 0;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-        }
-        .service-item p {
-            color: #666;
-        }
-
-        /* Sobre Mí */
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-            text-align: center;
-        }
-
-        .profile-pic {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid #3498db;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        .about-content div {
-            max-width: 800px;
-            color: #555;
-            font-size: 1.1em;
-        }
-        .about-content p {
-            margin-bottom: 15px;
-        }
-
-        /* Videos */
-        .video-container {
+        /* Estilo para las secciones con fondo */
+        .section-bg {
             position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            margin: 30px 0;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            background-color: #000; /* Fondo negro para videos */
+            padding: 100px 0; /* Ajusta el padding vertical */
+            color: #fff; /* Texto blanco por defecto */
+            text-align: center;
+            overflow: hidden; /* Para que la imagen de fondo no se salga */
         }
 
-        .video-container iframe {
+        .section-bg::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            opacity: 0.7; /* Ajusta la opacidad de la imagen */
         }
 
+        .section-bg .container {
+            z-index: 2; /* Asegura que el contenido esté sobre la capa de la imagen */
+            position: relative; /* Para el z-index */
+        }
 
-        /* Testimonios */
-        .testimonial-grid {
+        /* Hero Section */
+        #hero {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #hero::before {
+            background-image: url('https://images.unsplash.com/photo-1544367364-97214775d710?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        }
+
+        #hero .container {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+
+        #hero h2 {
+            font-size: 4em;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 1.6em;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #eee;
+        }
+
+        /* Servicios */
+        #servicios {
+            background-color: #f8f8f8; /* Un fondo base por si la imagen tarda en cargar */
+        }
+
+        #servicios::before {
+            background-image: url('https://images.unsplash.com/photo-1551387203-3f101c3584ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        }
+
+        #servicios h2 {
+            color: #fff;
+        }
+
+        #servicios .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
             margin-top: 40px;
         }
 
-        .testimonial-item {
-            background-color: #fff;
+        #servicios .service-item {
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 35px;
             border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #444;
+        }
+
+        #servicios .service-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        #servicios .service-item h3 {
+            color: #3498db;
+            margin-top: 0;
+            font-size: 1.7em;
+            margin-bottom: 15px;
+        }
+        #servicios .service-item p {
+            color: #666;
+        }
+
+        /* Sobre Mí */
+        #sobre-mi {
+            background-color: #f0f4f7;
+        }
+
+        #sobre-mi::before {
+            background-image: url('https://images.unsplash.com/photo-1590110584733-41181a634283?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        }
+
+        #sobre-mi h2 {
+            color: #fff;
+        }
+
+        #sobre-mi .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            text-align: center;
+        }
+
+        #sobre-mi .profile-pic {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid #3498db;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        #sobre-mi .about-content div {
+            max-width: 900px;
+            color: #eee;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
+        #sobre-mi .about-content p {
+            margin-bottom: 20px;
+        }
+
+        /* Testimonios */
+        #testimonios {
+            background-color: #f8f8f8;
+        }
+
+        #testimonios::before {
+            background-image: url('https://images.unsplash.com/photo-1560343027-ca1b3999705f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        }
+
+        #testimonios h2 {
+            color: #fff;
+        }
+
+        #testimonios .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        #testimonios .testimonial-item {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
             text-align: center;
             font-style: italic;
             color: #555;
@@ -253,79 +294,82 @@
             justify-content: space-between;
         }
 
-        .testimonial-item p {
-            margin-bottom: 20px;
-        }
-
-        .testimonial-item span {
-            display: block;
-            margin-top: auto; /* Empuja el nombre hacia abajo */
-            font-style: normal;
-            font-weight: bold;
-            color: #2c3e50;
-            font-size: 1.05em;
-        }
-        .video-testimonial-item .video-container {
-            margin: 0 0 20px 0; /* Ajusta margen para items de video */
-        }
-
-        /* Contacto */
-        #contacto h2 {
-            margin-bottom: 35px;
-        }
-
-        #contacto form {
-            max-width: 650px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
+        #testimonios .testimonial-item p {
             margin-bottom: 25px;
         }
 
-        .form-group label {
+        #testimonios .testimonial-item span {
             display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
+            margin-top: auto;
+            font-style: normal;
+            font-weight: bold;
             color: #2c3e50;
+            font-size: 1.1em;
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="tel"],
-        .form-group textarea {
-            width: calc(100% - 24px); /* Ajuste para padding */
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1.05em;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        #testimonios h3 {
+            color: #fff;
+            margin-top: 60px;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: #3498db;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-            outline: none;
+        #testimonios .video-testimonial-item .video-container {
+            margin: 20px auto;
+            max-width: 560px; /* Ancho máximo para los videos */
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
+        /* Contacto */
+        #contacto {
+            background-color: #f0f4f7;
         }
 
-        .contact-info {
+        #contacto::before {
+            background-image: url('https://images.unsplash.com/photo-1503376780362-7e195227851d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        }
+
+        #contacto h2 {
+            color: #fff;
+        }
+
+        #contacto p {
+            color: #eee;
             text-align: center;
-            margin-top: 35px;
             font-size: 1.2em;
-            color: #555;
+            max-width: 700px;
+            margin: 20px auto;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
         }
-        .contact-info a {
+
+        #contacto form {
+            max-width: 700px;
+            margin: 40px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            color: #444;
+            text-shadow: none;
+        }
+
+        #contacto .form-group label {
+            color: #2c3e50;
             font-weight: 600;
+        }
+
+        #contacto .form-group input,
+        #contacto .form-group textarea {
+            border: 1px solid #ccc;
+        }
+
+        #contacto .contact-info {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.3em;
+            color: #eee;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
+        #contacto .contact-info a {
+            font-weight: bold;
+            color: #fff;
         }
 
         /* Footer */
@@ -334,23 +378,25 @@
             color: #ecf0f1;
             text-align: center;
             padding: 30px 0;
-            margin-top: 60px;
             font-size: 0.95em;
+            position: relative;
+            z-index: 2;
         }
 
-        footer p {
-            margin: 0;
+        footer .container {
+            z-index: 2;
+            position: relative;
         }
 
         /* Responsive Design */
         @media (min-width: 768px) {
-            .about-content {
+            #sobre-mi .about-content {
                 flex-direction: row;
                 text-align: left;
             }
 
-            .profile-pic {
-                margin-right: 40px;
+            #sobre-mi .profile-pic {
+                margin-right: 60px;
                 margin-bottom: 0;
             }
         }
@@ -372,42 +418,41 @@
             }
 
             #hero h2 {
-                font-size: 2.5em;
+                font-size: 3em;
             }
 
             #hero p {
-                font-size: 1em;
+                font-size: 1.2em;
             }
 
             .section-padded {
-                padding: 40px 0;
+                padding: 60px 0;
             }
 
             h2 {
-                font-size: 2em;
+                font-size: 2.4em;
             }
 
             h3 {
-                font-size: 1.4em;
+                font-size: 1.6em;
             }
 
             .service-grid, .testimonial-grid {
                 grid-template-columns: 1fr;
             }
 
-            .about-content {
+            #sobre-mi .about-content {
                 flex-direction: column;
                 align-items: center;
             }
 
-            #contacto form {
-                padding: 25px;
+            #sobre-mi .profile-pic {
+                margin-right: 0;
+                margin-bottom: 30px;
             }
-            .form-group input[type="text"],
-            .form-group input[type="email"],
-            .form-group input[type="tel"],
-            .form-group textarea {
-                width: calc(100% - 20px); /* Ajuste para padding */
+
+            #contacto form {
+                padding: 30px;
             }
         }
     </style>
@@ -428,15 +473,15 @@
         </div>
     </header>
 
-    <section id="hero">
+    <section id="hero" class="section-bg">
         <div class="container">
             <h2 id="welcomeMessage">Tu Bienestar, Mi Prioridad</h2>
-            <p>Asistencia profesional, cálida y confiable para adultos mayores en Ciudad de la Costa y cercanías.</p>
+            <p>Asistencia profesional, cálida y confiable para adultos mayores en Montevideo y cercanías.</p>
             <a href="#contacto" class="btn">Solicita tu Consulta Gratuita Hoy</a>
         </div>
     </section>
 
-    <section id="servicios" class="section-padded">
+    <section id="servicios" class="section-bg">
         <div class="container">
             <h2>Nuestros Servicios Integrales</h2>
             <div class="service-grid">
@@ -468,19 +513,19 @@
         </div>
     </section>
 
-    <section id="sobre-mi" class="section-light section-padded">
+    <section id="sobre-mi" class="section-bg">
         <div class="container">
             <h2>Sobre Mí: Pasión por el Cuidado Digno</h2>
             <div class="about-content">
-                <img src="https://images.unsplash.com/photo-1544367364-97214775d710?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foto Profesional de la Asistente" class="profile-pic">
+                <img src="https://images.unsplash.com/photo-1590110584733-41181a634283?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foto Profesional de la Asistente" class="profile-pic">
                 <div>
-                    <p>¡Hola! Soy **[Nombre de tu amiga]**, una asistente gerontológica con una profunda vocación y **más de 10 años de experiencia** dedicada al bienestar de los adultos mayores en Uruguay.</p>
+                    <p>¡Hola! Soy **Nombre de tu amiga**, una asistente gerontológica con una profunda vocación y **más de 10 años de experiencia** dedicada al bienestar de los adultos mayores en Uruguay.</p>
                     <p>Cuento con **Diploma en Asistencia Gerontológica** y una sólida trayectoria trabajando tanto con **particulares** como en **geriátricos reconocidos**. Mi enfoque es siempre individualizado, buscando potenciar la autonomía y brindar un cuidado integral que mejore la calidad de vida de cada persona.</p>
                     <p>Mi compromiso es ofrecer un servicio basado en el **respeto, la empatía y la profesionalidad**, creando un vínculo de confianza con las familias y sus seres queridos.</p>
 
                     <h3>Mi Filosofía en un Video</h3>
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE?controls=0" title="Video de Presentación del Servicio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/..." title="Video de Presentación del Servicio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <p>Este breve video te permitirá conocerme un poco mejor y entender mi filosofía de trabajo. Estoy aquí para brindarles la tranquilidad que merecen.</p>
                 </div>
@@ -488,7 +533,7 @@
         </div>
     </section>
 
-    <section id="testimonios" class="section-padded">
+    <section id="testimonios" class="section-bg">
         <div class="container">
             <h2>Historias Reales: La Voz de Quienes Confiaron</h2>
             <div class="testimonial-grid">
@@ -514,13 +559,13 @@
             <div class="testimonial-grid">
                  <div class="testimonial-item video-testimonial-item">
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE_2?controls=0" title="Testimonio en Video Cliente 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" title="Testimonio en Video Cliente 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <p>Escucha directamente la experiencia de la familia [Apellido del Cliente] con nuestro servicio.</p>
                 </div>
                 <div class="testimonial-item video-testimonial-item">
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE_3?controls=0" title="Testimonio en Video Cliente 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Testimonio en Video Cliente 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <p>La Sra. [Apellido del Cliente] comparte cómo su vida y la de su familiar mejoraron con nuestro apoyo.</p>
                 </div>
@@ -528,10 +573,10 @@
         </div>
     </section>
 
-    <section id="contacto" class="section-light section-padded">
+    <section id="contacto" class="section-bg">
         <div class="container">
             <h2>Conversemos: Tu Tranquilidad es Mi Prioridad</h2>
-            <p style="text-align: center; font-size: 1.15em; max-width: 700px; margin: 0 auto 40px;">¿Tienes alguna pregunta, necesitas un servicio específico o quieres solicitar una consulta gratuita y sin compromiso? Estoy aquí para ayudarte a encontrar la mejor solución para tu familiar.</p>
+            <p>¿Tienes alguna pregunta, necesitas un servicio específico o quieres solicitar una consulta gratuita y sin compromiso? Estoy aquí para ayudarte a encontrar la mejor solución para tu familiar.</p>
             <form action="#" method="POST">
                 <div class="form-group">
                     <label for="name">Tu Nombre Completo:</label>
@@ -559,7 +604,7 @@
 
     <footer>
         <div class="container">
-            <p>© 2025 Cuidado Mayor Digno. Todos los derechos reservados. | Asistencia Gerontológica Profesional en Ciudad de la Costa, Uruguay.</p>
+            <p>© 2025 Cuidado Mayor Digno. Todos los derechos reservados. | Asistencia Gerontológica Profesional en Montevideo, Uruguay.</p>
         </div>
     </footer>
 
@@ -575,15 +620,25 @@
             let messageIndex = 0;
 
             function changeWelcomeMessage() {
-                welcomeMessageElement.textContent = messages[messageIndex];
-                messageIndex = (messageIndex + 1) % messages.length;
+                welcomeMessageElement.textContent = messages.sort(() => Math.random() - 0.5)[0]; // Mensaje aleatorio
             }
 
-            // Cambia el mensaje cada 4 segundos
-            setInterval(changeWelcomeMessage, 4000);
+            // Cambia el mensaje cada 3 segundos
+            setInterval(changeWelcomeMessage, 3000);
 
             // Ejecuta el cambio de mensaje al cargar la página
             changeWelcomeMessage();
+
+            // Smooth scrolling para los enlaces del menú
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
         });
     </script>
 </body>
